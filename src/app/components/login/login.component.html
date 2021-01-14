@@ -1,0 +1,30 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col-md-12"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Giriş Yap</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>Mail:</label>
+            <input type="text" name="mail" class="form-control" #mail>
+          </div>
+          <div class="form-group">
+            <label>Şifre:</label>
+            <input type="password" name="password" class="form-control" #password>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" (click)="singIn(mail.value,password.value)">Giriş Yap</button>
+          <button class="btn btn-success ml-2" [routerLink]="['/signup']">Kayıt Ol</button>
+        </div>
+      </div>
+      <div [ngClass]="sonuc.islem ? 'alert alert-success':'alert alert-danger'" *ngIf="mesaj.length>0"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"></div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirebaseServiceService } from './services/firebaseService.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'final';
+  constructor(
+    public servis: FirebaseServiceService
+  ) {
+  }
+
+  oturumKontrol() {
+    this.servis.oturumCheck()
+  }
+
+  signOut() {
+    this.servis.signOut()
+  }
 }
