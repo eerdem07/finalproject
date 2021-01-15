@@ -12,22 +12,19 @@
           <a class="nav-link active" aria-current="page" href="#">Ana Sayfa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Sorular</a>
+          <a class="nav-link" href="#" src="">Sorularım</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
     </div>
     <div>
+      <button class="btn btn-primary mr-2" *ngIf="servis.oturumCheck()" [routerLink]="['soruekle']">SoruEkle</button>
       <button class="btn btn-primary" *ngIf="!servis.oturumCheck()" [routerLink]="['login']">Giriş Yap</button>
       <button class="btn btn-success ml-2" *ngIf="!servis.oturumCheck()" [routerLink]="['signup']">Kayıt Ol</button>
       <button class="btn btn-danger ml-2 " *ngIf="servis.oturumCheck()" (click)="signOut()">Çıkış Yap</button>
     </div>
   </div>
 </nav>
-
 <router-outlet></router-outlet>

@@ -1,5 +1,26 @@
-<div class="container">
+<div class="container-lg">
   <div class="row">
-    <div class="col-12">HOME COMPONENT!</div>
+    <div class="col-6">
+      <div class="container">
+        <h4>Kategoriler</h4>
+      </div>
+    </div>
+    <div class="col-6" *ngFor="let kayit of kayitlar">
+      <div class="card text-center mt-2">
+        <div class="card-header">
+          Soru
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{kayit.soruAd}}</h5>
+          <p class="card-text ">{{kayit.soru}}</p>
+          <b>Eklenme Tarihi:</b>{{kayit.kayTarih | date:'dd.MM.yyyy HH.mm.ss'}}
+        </div>
+        <div class="card-footer text-muted">
+          <a href="#" class="btn btn-primary">Detay</a>
+          <a href="#" class="btn btn-warning mx-2">Düzenle</a>
+          <a href="#" class="btn btn-danger">Sil</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

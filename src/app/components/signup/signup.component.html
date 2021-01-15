@@ -4,31 +4,34 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">Giriş Yap</div>
-        <div class="card-body">
-          <div class="form-group">
-            <label>Ad:</label>
-            <input type="text" name="ad" class="form-control" #ad>
+      <form #kayitForm="ngForm" (ngSubmit)="signUp()">
+        <div class="card">
+          <div class="card-header">Üye Kayıt Ekranı</div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Ad:</label>
+              <input type="text" name="ad" class="form-control" #ad [(ngModel)]="yeniUye.ad">
+            </div>
+            <div class="form-group">
+              <label>Soyadı:</label>
+              <input type="text" name="ad" class="form-control" #soyad [(ngModel)]="yeniUye.soyad">
+            </div>
+            <div class="form-group">
+              <label>Mail:</label>
+              <input type="text" name="mail" class="form-control" #mail [(ngModel)]="yeniUye.mail">
+            </div>
+            <div class="form-group">
+              <label>Şifre:</label>
+              <input type="password" name="password" class="form-control" #password [(ngModel)]="yeniUye.parola">
+            </div>
           </div>
-          <div class=" form-group">
-            <label>Mail:</label>
-            <input type="text" name="soyad" class="form-control" #soyad>
-          </div>
-          <div class="form-group">
-            <label>Mail:</label>
-            <input type="text" name="mail" class="form-control" #mail>
-          </div>
-          <div class="form-group">
-            <label>Şifre:</label>
-            <input type="password" name="password" class="form-control" #password>
+          <div class="card-footer">
+            <input type="submit" value="Kayıt Ol" class="btn btn-success" value="Kayıt Ol"
+              [disabled]="kayitForm.invalid">
+            <button class="btn btn-primary ml-2" [routerLink]="['/login']">Giriş Yap</button>
           </div>
         </div>
-        <div class="card-footer">
-          <button class="btn btn-primary">Kayıt Ol</button>
-          <button class="btn btn-success ml-2">Giriş Yap</button>
-        </div>
-      </div>
+      </form>
       <div></div>
     </div>
   </div>

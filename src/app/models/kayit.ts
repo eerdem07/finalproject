@@ -1,8 +1,8 @@
 export class Kayit {
     key!: string
-    baslik!: string
-    icerik!: string
-    uuid!: string
+    soruAd!: string
+    soru!: string
+    uid!: string
     kayTarih!: string
     duzTarih!: string
 

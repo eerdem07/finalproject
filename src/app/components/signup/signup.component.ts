@@ -16,9 +16,32 @@ export class SignupComponent implements OnInit {
   constructor(
     public servis: FirebaseServiceService,
     public router: Router
-  ) { } structor() { }
+  ) { }
 
   ngOnInit() {
+  }
+
+
+  signUp() {
+    this.servis.signUp(this.yeniUye).then(d => {
+      d.user!.updateProfile({
+        displayName: `${this.yeniUye.ad} ${this.yeniUye.soyad}`
+      }).then(() => {
+        this.yeniUye.uid = d.user!.uid
+        localStorage.setItem("user", JSON.stringify(d.user))
+        this.addAccount()
+      })
+    }, err => {
+      this.sonuc.islem = false
+      this.sonuc.mesaj = "Hata oluştur."
+      this.mesaj = this.sonuc.mesaj
+    })
+  }
+
+  addAccount() {
+    this.servis.addAccount(this.yeniUye).then(d => {
+      this.router.navigate(['/'])
+    })
   }
 
 }
